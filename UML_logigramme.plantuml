@@ -1,0 +1,39 @@
+@startuml
+
+start
+
+	if (a+b<=c || b+c<=a || c+a<=b) then (yes)
+		:return "//impossible//";
+		stop
+	else (no)
+
+		if (a==b) then (yes)
+			:egalite++;
+		else (no)
+		endif
+
+		if (a==c) then (yes)
+			:egalite++;
+		else (no)
+		endif
+		
+		if (c==b) then (yes)
+			:egalite++;
+		else (no)
+		endif
+		
+		if (egalite==0)	then (yes)
+			:return "//quelconque//";
+			stop
+		elseif (egalite==1) then (yes)
+			:return "//isocele//";
+			stop
+		else
+			:return "//equilateral//";
+			stop
+		endif
+		
+	endif
+
+@enduml
+

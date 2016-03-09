@@ -1,0 +1,49 @@
+@startuml
+
+'title Architecture générale
+
+node "CPURT                                      " {
+
+	() "Serveur RPC ITDIF" as RpcTdif
+	() "Serveur RPC CPU" as RpcCpu
+	[Interface ITDIF\n(//Passerelle RPC/BAL//)] as iTdif
+	[Bibliothèque SIEMENS] as CodeSiemens
+	[Code d'adaptation RATP] as CodeRatp
+		
+	RpcCpu --> CodeRatp
+	RpcTdif --> iTdif
+	
+	iTdif --> CodeSiemens  : Message UDP\n@127.0.0.01:2000
+	iTdif <-- CodeSiemens  : Message UDP\n@127.0.0.01:2001
+	
+	CodeSiemens --> CodeRatp
+	
+	frame "Carte d'interfaces CPURT" {
+		CodeRatp ..> [Carte D203] : initialise
+		[Carte D203] ..> [Carte CSES]
+		[Carte D203] ..> [Carte GSQ]
+		[Carte D203] ..> [Cartes LSR]
+		
+		CodeSiemens --> [Carte CSES]
+		CodeSiemens --> [Carte GSQ]
+		CodeSiemens --> [Cartes LSR]
+	}
+}
+
+node "PC ODTGen" {
+	database Scenarii
+	[TestStand] -u-> Scenarii
+	[TestStand] -l-> [Interfaces matérielles] : bus GPIB, PXI, ...
+	[TestStand] .r.> RpcTdif : appels via\nEthernet (""gei0"")
+	[TestStand] .l.> RpcCpu
+}
+
+node "Interfaces matérielles" {
+		[Alims]
+		[GBF]
+		[Multimètres]
+		[Oscillo]
+		[...]
+}
+
+@enduml

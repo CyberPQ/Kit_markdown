@@ -1,0 +1,44 @@
+@startuml
+
+hide footbox
+title Interruption externe sur une carte de liaison rapide (LSR)
+
+	box "Matériel" #LightBlue
+		participant "M-Module LSR" as HardLSR
+		participant "Carte PCI D203" as HardD203
+		participant "Processeur" as CPU
+	end box
+	box "Logiciel"
+		participant "Driver de la carte\nporteuse D203" as D203
+		participant "Driver du\nM-Module LSR" as LSR
+		participant "Gestion des liaisons\nséries rapides" as CodeSimens
+	end box
+
+	[-> HardLSR : <size:20><&flash></size> Évènement\nextérieur
+	HardLSR -> HardD203 : ligne d'IRQ M-Module\nactivée
+	HardD203 -> CPU : vecteur d'IT bus PCI
+	activate CPU	
+	
+	CPU -> D203 : gestionnaire d'IT\nM-Modules		
+	D203 -> LSR : gestionnaire d'IT LSR
+	LSR -> HardLSR : acquittement de l'événement LSR
+	HardLSR --> HardD203 : ligne d'IRQ M-Module\nrelâchée 
+	HardD203 --> CPU : acquittement de l'IT\nmatériel
+	
+	alt toggle of DCD line
+		LSR -> LSR : lsr_DCDLineInterrupt
+	else toggle of CTS line
+		LSR -> LSR : lsr_CTSLineInterrupt
+	else End of TX channel
+		LSR -> CodeSimens : activation de la commande\nsuivante
+		LSR <-- CodeSimens: retour
+	else end of RX channel
+		LSR -> CodeSimens : enregistrement et traitement\nde l'octet reçu
+		LSR <-- CodeSimens: retour
+	end
+	
+	LSR --> D203 : retour
+	D203 --> CPU : Fin du traitement de\nl'interruption PCI
+	deactivate CPU
+
+@enduml
