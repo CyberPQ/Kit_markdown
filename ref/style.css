@@ -99,6 +99,11 @@ h1
     border-bottom-color : #000;
 }
 
+h2
+{
+    text-decoration: underline;
+}
+
 /* Pandoc with --section-divs option */
 
 div div, section section /* Nested sections */
