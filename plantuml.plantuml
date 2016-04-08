@@ -1,0 +1,7 @@
+@startuml{version.png}
+checkversion
+@enduml
+
+@startuml{icones.png}
+listopeniconic
+@enduml
