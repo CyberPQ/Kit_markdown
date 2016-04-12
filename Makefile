@@ -1,4 +1,5 @@
 BUILD_DIR := out
+IMAGES_DIR := images
 
 # pandoc is a handy tool for converting between numerous text formats:
 # http://johnmacfarlane.net/pandoc/installing.html
@@ -15,32 +16,45 @@ md := kindlegen
 KINDLEGEN_OPTS :=
 
 MARKDOWN := $(wildcard *.md)
-PDF := $(patsubst %.md,$(BUILD_DIR)/%.pdf,$(MARKDOWN))
-EBOOK := $(patsubst %.md,$(BUILD_DIR)/%.epub,$(MARKDOWN))
-DOCX := $(patsubst %.md,$(BUILD_DIR)/%.docx,$(MARKDOWN))
-WIKI := $(patsubst %.md,$(BUILD_DIR)/%.mediawiki,$(MARKDOWN))
-HTML := $(patsubst %.md,$(BUILD_DIR)/%.html,$(MARKDOWN))
+PDF   := $(patsubst %.md, $(BUILD_DIR)/%.pdf       ,$(MARKDOWN))
+EBOOK := $(patsubst %.md, $(BUILD_DIR)/%.epub      ,$(MARKDOWN))
+DOCX  := $(patsubst %.md, $(BUILD_DIR)/%.docx      ,$(MARKDOWN))
+WIKI  := $(patsubst %.md, $(BUILD_DIR)/%.mediawiki ,$(MARKDOWN))
+HTML  := $(patsubst %.md, $(BUILD_DIR)/%.html      ,$(MARKDOWN))
 
-.PHONY: all checkdirs pdf ebook doc wiki html clean
+PLANTUML := $(wildcard *.plantuml)
+PNG  := $(patsubst %.plantuml, images\\%.png		,$(PLANTUML))
+
+
+.PHONY: all checkdirs pdf ebook doc wiki html clean png
 
 #all: checkdirs $(PDF) $(EBOOK) $(DOCX) $(WIKI) $(HTML)
-all: checkdirs $(PDF) $(DOCX) $(HTML)
+all: checkdirs png $(HTML) $(DOCX) $(PDF)
 
-checkdirs: $(BUILD_DIR)
+checkdirs: $(BUILD_DIR) $(IMAGES_DIR)
 
-pdf: checkdirs $(PDF)
+pdf: checkdirs png $(PDF)
 
-ebook: checkdirs $(EBOOK)
+ebook: checkdirs png $(EBOOK)
 
-doc: checkdirs $(DOCX)
+doc: checkdirs png $(DOCX)
 
-wiki: checkdirs $(WIKI)
+wiki: checkdirs png $(WIKI)
 
-html: checkdirs $(HTML)
+html: checkdirs png $(HTML)
+
+png:  checkdirs $(PNG)
 
 $(BUILD_DIR):
 	@mkdir -p $@
 
+$(IMAGES_DIR):
+	@mkdir -p $@
+	
+# generate PlantUML diagramms
+$(IMAGES_DIR)\\%.png: %.plantuml
+	java -jar ref\plantuml.jar -charset UTF-8  -o $(IMAGES_DIR) $<
+	
 # generate PDF
 $(BUILD_DIR)/%.pdf: %.md
 	$(PANDOC) $(PANDOC_PDF_OPTS) --from markdown_github+mmd_title_block+table_captions+multiline_tables+grid_tables+implicit_figures -o $@ $<
@@ -64,5 +78,5 @@ $(BUILD_DIR)/%.html: %.md
 
 clean:
 	@rm -rf $(BUILD_DIR)
-
+	@rm -rf $(IMAGES_DIR)
 
