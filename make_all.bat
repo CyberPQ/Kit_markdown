@@ -52,7 +52,7 @@ rem -------------------------------------------------------------------
 echo Generation des images UML :
 FOR %%I in (*.plantuml) DO (
                 echo %TAB%- %%~nI...
-                java -jar ref\plantuml.jar -o "images" %%I
+                java -jar ref\plantuml.jar  -charset UTF-8 -o "images" %%I
 )
 echo.
 
