@@ -116,7 +116,7 @@ Ce document présente l'architecture générale du logicel :
 
 Voici un diagramme de séquences entièrement rédigé en mode texe :
 
-![Figure 2 : Diagramme de séquence PlantUML](images\ULM_DiagSeq.png)
+![Figure 2 : Diagramme de séquence PlantUML](images\UML_DiagSeq.png)
 
 
 Titre de niveau 1
