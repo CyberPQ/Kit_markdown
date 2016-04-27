@@ -1,13 +1,13 @@
-@startuml
+ï»¿@startuml
 
-'title Architecture générale
+'title Architecture gÃ©nÃ©rale
 
 node "CPURT                                      " {
 
 	() "Serveur RPC ITDIF" as RpcTdif
 	() "Serveur RPC CPU" as RpcCpu
 	[Interface ITDIF\n(//Passerelle RPC/BAL//)] as iTdif
-	[Bibliothèque SIEMENS] as CodeSiemens
+	[BibliothÃ¨que SIEMENS] as CodeSiemens
 	[Code d'adaptation RATP] as CodeRatp
 		
 	RpcCpu --> CodeRatp
@@ -33,15 +33,15 @@ node "CPURT                                      " {
 node "PC ODTGen" {
 	database Scenarii
 	[TestStand] -u-> Scenarii
-	[TestStand] -l-> [Interfaces matérielles] : bus GPIB, PXI, ...
+	[TestStand] -l-> [Interfaces matÃ©rielles] : bus GPIB, PXI, ...
 	[TestStand] .r.> RpcTdif : appels via\nEthernet (""gei0"")
 	[TestStand] .l.> RpcCpu
 }
 
-node "Interfaces matérielles" {
+node "Interfaces matÃ©rielles" {
 		[Alims]
 		[GBF]
-		[Multimètres]
+		[MultimÃ¨tres]
 		[Oscillo]
 		[...]
 }
