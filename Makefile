@@ -23,8 +23,8 @@ HTML := $(patsubst %.md,$(BUILD_DIR)/%.html,$(MARKDOWN))
 
 .PHONY: all checkdirs pdf ebook doc wiki html clean
 
-#all: checkdirs $(PDF) $(EBOOK) $(DOCX) $(WIKI) $(HTML)
-all: checkdirs $(PDF) $(DOCX) $(HTML)
+#all: checkdirs  $(HTML) $(PDF) $(EBOOK) $(DOCX) $(WIKI)
+all: checkdirs $(HTML) $(DOCX) 
 
 checkdirs: $(BUILD_DIR)
 
@@ -43,7 +43,7 @@ $(BUILD_DIR):
 
 # generate PDF
 $(BUILD_DIR)/%.pdf: %.md
-	$(PANDOC) $(PANDOC_PDF_OPTS) --from markdown_github+mmd_title_block+table_captions+multiline_tables+grid_tables+implicit_figures -o $@ $<
+	$(PANDOC) $(PANDOC_PDF_OPTS) --from markdown_github+mmd_title_block+table_captions+multiline_tables+grid_tables+implicit_figures --self-contained --toc --chapters --base-header-level=1 --number-sections --variable mainfont="Liberation Serif" --variable sansfont="Liberation Sans" --variable monofont="Liberation Mono" --variable fontsize=10pt --variable documentclass=book -V geometry:margin=2cm -o $@ $<
 
 # generate both iBooks (.epub) and then Kindle (.mobi) formats
 $(BUILD_DIR)/%.epub: %.md
@@ -60,7 +60,7 @@ $(BUILD_DIR)/%.mediawiki: %.md
 
 # generate HTML files
 $(BUILD_DIR)/%.html: %.md
-	$(PANDOC) --from markdown_github+mmd_title_block+table_captions+multiline_tables+grid_tables+implicit_figures --self-contained --standalone --table-of-contents --css=ref/style.css -o $@ $<
+	$(PANDOC) --from markdown_github+mmd_title_block+table_captions+multiline_tables+grid_tables+implicit_figures --self-contained --standalone --table-of-contents --css=ref/style.css --number-sections -o $@ $<
 
 clean:
 	@rm -rf $(BUILD_DIR)

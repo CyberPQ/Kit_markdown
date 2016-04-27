@@ -31,7 +31,7 @@ rem Options pandoc
 rem -------------------------------------------------------------------
 SET INPUT_FORMAT=--from markdown_github+mmd_title_block+table_captions+multiline_tables+grid_tables+implicit_figures
  
-SET HTML_OPTIONS=--self-contained --standalone --table-of-contents --css=ref\style.css
+SET HTML_OPTIONS=--self-contained --standalone --table-of-contents --css=ref\style.css --number-sections
 
 SET DOCX_OPTIONS=--reference-docx=ref\MDL_Tech-Med_7.docm --table-of-contents
 
@@ -52,7 +52,7 @@ rem -------------------------------------------------------------------
 echo Generation des images UML :
 FOR %%I in (*.plantuml) DO (
                 echo %TAB%- %%~nI...
-                java -jar ref\plantuml.jar -o "images" %%I
+                java -jar ref\plantuml.jar  -charset UTF-8 -o "images" %%I
 )
 echo.
 
