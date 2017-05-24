@@ -205,3 +205,6 @@ ou bien en python (*on appréciera au passage la concision du language par rappo
 ```python
 print "Hello World"
 ```
+Exemple de diagrammes de temps généré à l'aide de PlantUML :
+
+![Figure 4 : Diagramme de temps : Affichage d'une page Web](images\UML_timing.png)
