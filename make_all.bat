@@ -35,7 +35,7 @@ SET HTML_OPTIONS=--self-contained --standalone --table-of-contents --css=ref\sty
 
 SET DOCX_OPTIONS=--reference-docx=ref\MDL_Tech-Med_7.docm --table-of-contents
 
-SET PDF_OPTIONS=--self-contained --toc --chapters --base-header-level=1 --number-sections --variable mainfont="Liberation Serif" --variable sansfont="Liberation Sans" --variable monofont="Liberation Mono" --variable fontsize=10pt --variable documentclass=book -V geometry:margin=2cm 
+SET PDF_OPTIONS=--self-contained --toc --top-level-division=chapter --base-header-level=1 --number-sections --variable mainfont="Liberation Serif" --variable sansfont="Liberation Sans" --variable monofont="Liberation Mono" --variable fontsize=10pt --variable documentclass=book -V geometry:margin=2cm 
 
 
 rem Petit raccourcit pour ne g‚n‚rer que les documents (pas les images) en appelant le batch avec le paramŠtre 'md'
