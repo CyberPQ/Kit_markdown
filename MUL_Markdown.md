@@ -208,3 +208,8 @@ print "Hello World"
 Exemple de diagrammes de temps généré à l'aide de PlantUML :
 
 ![Figure 4 : Diagramme de temps : Affichage d'une page Web](images\UML_timing.png)
+
+Exemples de diagrammes de Gantt générés à l'aide de PlantUML :
+![Figure 5 : Diagramme de Gantt](images\UML_gantt.png)
+![Figure 6 : Diagramme de Gantt](images\UML_gantt_001.png)
+![Figure 7 : Diagramme de Gantt](images\UML_gantt_002.png)
