@@ -152,6 +152,8 @@ Voici un exemple de liste numérotée :
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae nunc vitae nulla feugiat tempor eu vitae lacus. Vestibulum malesuada consequat magna at eleifend. In hac habitasse platea dictumst. Cras placerat molestie sem non feugiat. Etiam sit amet metus vel ligula egestas laoreet non sit amet lacus. Praesent quis quam non augue pellentesque placerat. Sed et leo id odio imperdiet tempor. In dapibus elit in mauris hendrerit dictum. Donec quis nibh eu ipsum auctor varius. Pellentesque quis scelerisque tellus. Etiam a augue nulla. Nam placerat mi ac massa mattis, nec vehicula diam interdum. Aliquam erat volutpat. Ut eu tempor risus.
 
+ > Ceci est une citation : « C’est curieux chez les marins ce besoin de faire des phrases ! »
+
 Autre titre de niveau 2
 -----------------------
 
