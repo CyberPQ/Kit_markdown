@@ -18,8 +18,9 @@ rem ============================================================================
 rem -------------------------------------------------------------------
 rem Chemin et configuration 
 rem -------------------------------------------------------------------
-SET PANDOC="%LOCALAPPDATA%\Pandoc\pandoc.exe"
-SET PATH=%PATH%;c:\Users\BPR\Downloads\miktex\bin\;"c:\Program Files (x86)\Java\jre6\bin"
+SET PANDOC="pandoc.exe"
+rem SET PANDOC="%LOCALAPPDATA%\Pandoc\pandoc.exe"
+SET PATH=%PATH%;"C:\Program Files (x86)\MiKTeX 2.9\miktex\bin";"c:\Program Files (x86)\Java\jre6\bin"
 SET BUILD_DIR=out
 set TAB=    
  
@@ -33,7 +34,7 @@ SET INPUT_FORMAT=--from markdown_github+mmd_title_block+table_captions+multiline
  
 SET HTML_OPTIONS=--self-contained --standalone --table-of-contents --css=ref\style.css --number-sections
 
-SET DOCX_OPTIONS=--reference-docx=ref\MDL_Tech-Med_7.docm --table-of-contents
+SET DOCX_OPTIONS=--reference-doc=ref\MDL_Tech-Med_7.docm --table-of-contents
 
 SET PDF_OPTIONS=--self-contained --toc --top-level-division=chapter --base-header-level=1 --number-sections --variable mainfont="Liberation Serif" --variable sansfont="Liberation Sans" --variable monofont="Liberation Mono" --variable fontsize=10pt --variable documentclass=book -V geometry:margin=2cm 
 
