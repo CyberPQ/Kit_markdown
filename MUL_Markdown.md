@@ -8,7 +8,7 @@ INTRODUCTION
 But, Responsabilités, Domaine d’application
 --------------------------------------------
 
-###Objectifs
+### Objectifs
 
 Ce paragraphe donne la raison d’être du document. Il s’articule de la manière suivante :
  - But du système dans une description rapide.
@@ -17,7 +17,7 @@ Ce paragraphe donne la raison d’être du document. Il s’articule de la mani�
 
 Cette description de quelques lignes apparaîtra dans tous les documents relatifs au sous-système. Il est conseillé de recopier mot pour mot cette description sur l'ensemble des documents.
 
-###Responsabilités
+### Responsabilités
 
 Ce paragraphe donne les responsabilités associées au document, notamment :
  - le nom de l’auteur ou de l’équipe de rédaction,
@@ -28,7 +28,7 @@ Si ces informations sont déjà données dans le Plan Qualité du projet, il fau
 
 Les responsabilités associées à ce document sont définies dans le Plan Qualité du Projet.
 
-###Domaine d’application
+### Domaine d’application
 
 Ce paragraphe précise à quel sous-ensemble du projet correspond ce document, et à quelle version du ou des composants. Par exemple s’il s’agit d’un logiciel :
 
@@ -45,7 +45,7 @@ Documents applicables, de référence
 
 Ces paragraphes donnent la liste des documents d’entrée de ce document.
 
-###Documents Médiane Système applicables
+### Documents Médiane Système applicables
 Doivent au moins apparaître 
  - le Manuel Qualité de Médiane Système,
  - le Plan Qualité du projet
@@ -73,7 +73,7 @@ Peuvent apparaître :
 
   : Documents exernes applicables.
 
-###Documents de référence
+### Documents de référence
 Un document de référence est un document utilisé pour la rédaction de cette spécification :
  - guide de rédaction,
  - manuel utilisateur d'un logiciel,
@@ -125,7 +125,7 @@ Titre de niveau 1
 Titre de niveau 2
 -----------------
 
-###Titre de niveau 3
+### Titre de niveau 3
 
 ceci est un paragraphe. 
 
@@ -135,7 +135,7 @@ Phasellus rutrum vehicula sapien, ut maximus felis. Mauris blandit lectus conval
 
 Suspendisse scelerisque mollis libero, eu maximus enim interdum a. Fusce congue, nisl et tristique ullamcorper, libero sapien tincidunt risus, vel gravida nunc elit eget magna. In hac habitasse platea dictumst. Praesent nec est sit amet nunc mollis accumsan vitae sit amet massa. Proin et ligula a magna laoreet consectetur. Nullam iaculis leo in urna efficitur, sed tincidunt tellus mollis. Fusce feugiat auctor urna sed fermentum.
 
-###Titre de niveau 3
+### Titre de niveau 3
 
 Et voila un exemple de liste non-numérotée :
  - pomme
@@ -148,7 +148,7 @@ Voici un exemple de liste numérotée :
  2. Milou
  2. Haddock
  
-###Titre de niveau 3
+### Titre de niveau 3
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae nunc vitae nulla feugiat tempor eu vitae lacus. Vestibulum malesuada consequat magna at eleifend. In hac habitasse platea dictumst. Cras placerat molestie sem non feugiat. Etiam sit amet metus vel ligula egestas laoreet non sit amet lacus. Praesent quis quam non augue pellentesque placerat. Sed et leo id odio imperdiet tempor. In dapibus elit in mauris hendrerit dictum. Donec quis nibh eu ipsum auctor varius. Pellentesque quis scelerisque tellus. Etiam a augue nulla. Nam placerat mi ac massa mattis, nec vehicula diam interdum. Aliquam erat volutpat. Ut eu tempor risus.
 
