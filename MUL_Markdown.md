@@ -100,10 +100,12 @@ Ne pas hésiter à renvoyer à un document donnant une définition exacte des si
 +------------------+----------------------------------------------------------+
 | Terme ou symbole | Correspondance                                           |
 +==================+==========================================================+
-| RTFM             | **Read The File Manual**                                 |
+| **RTFM**         | **R**ead **T**he **F**ile **M**anual                     |
+|                  |                                                          |
 |                  | Ayez l'obligeance de vous reporter au manuel utilisateur |
 +------------------+----------------------------------------------------------+
-| PDJ              | **Petit DéJeuner**                                       |
+| **PDJ**          | **P**etit **D**é**J**euner                               |
+|                  |                                                          |
 |                  | Repas le plus important de la journée                    |
 +------------------+----------------------------------------------------------+
 
