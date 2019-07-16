@@ -114,11 +114,11 @@ CONTENU DU DOCUMENT...
 
 Ce document présente l'architecture générale du logicel : 
 
-![Figure 1 : Composants principaux du projet](images\UML_architecture.png)
+![Figure 1 : Composants principaux du projet](images/UML_architecture.png)
 
 Voici un diagramme de séquences entièrement rédigé en mode texe :
 
-![Figure 2 : Diagramme de séquence PlantUML](images\UML_DiagSeq.png)
+![Figure 2 : Diagramme de séquence PlantUML](images/UML_DiagSeq.png)
 
 
 Titre de niveau 1
@@ -192,7 +192,7 @@ char* QualifierTriangle(unsigned int a, unsigned int b, unsigned int c)
 
 avec le logigramme associé, rédigé en mode texte, et traité par le logiciel PlantUML pour en générer une image :
 
-![Figure 3 : Logigramme de qualification d'un triangle](images\UML_logigramme.png)
+![Figure 3 : Logigramme de qualification d'un triangle](images/UML_logigramme.png)
 
 ou bien en java
 ```java
@@ -211,12 +211,12 @@ print "Hello World"
 ```
 Exemple de diagrammes de temps généré à l'aide de PlantUML :
 
-![Figure 4 : Diagramme de temps : Affichage d'une page Web](images\UML_timing.png)
+![Figure 4 : Diagramme de temps : Affichage d'une page Web](images/UML_timing.png)
 
 Exemples de diagrammes de Gantt générés à l'aide de PlantUML :
 
-![Figure 5 : Diagramme de Gantt](images\UML_gantt.png)
+![Figure 5 : Diagramme de Gantt](images/UML_gantt.png)
 
-![Figure 6 : Diagramme de Gantt](images\UML_gantt_001.png)
+![Figure 6 : Diagramme de Gantt](images/UML_gantt_001.png)
 
-![Figure 7 : Diagramme de Gantt](images\UML_gantt_002.png)
+![Figure 7 : Diagramme de Gantt](images/UML_gantt_002.png)

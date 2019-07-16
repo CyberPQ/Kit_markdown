@@ -7,8 +7,8 @@ PANDOC := pandoc
 
 # pandoc options
 # Liberation fonts: http://en.wikipedia.org/wiki/Liberation_fonts
-#PANDOC_PDF_OPTS := --toc --chapters --base-header-level=1 --number-sections --template=virsto_doc.tex --variable mainfont="Liberation Serif" --variable sansfont="Liberation Sans" --variable monofont="Liberation Mono" --variable fontsize=12pt --variable documentclass=book
-PANDOC_PDF_OPTS :=--self-contained --toc --chapters --base-header-level=1 --number-sections --variable mainfont="Liberation Serif" --variable sansfont="Liberation Sans" --variable monofont="Liberation Mono" --variable fontsize=10pt --variable documentclass=book -V geometry:margin=2cm
+#PANDOC_PDF_OPTS := --toc --top-level-division=chapter --base-header-level=1 --number-sections --template=virsto_doc.tex --variable mainfont="Liberation Serif" --variable sansfont="Liberation Sans" --variable monofont="Liberation Mono" --variable fontsize=12pt --variable documentclass=book
+PANDOC_PDF_OPTS :=--self-contained --toc --top-level-division=chapter --base-header-level=1 --number-sections --variable mainfont="Liberation Serif" --variable sansfont="Liberation Sans" --variable monofont="Liberation Mono" --variable fontsize=10pt --variable documentclass=book -V geometry:margin=2cm
 PANDOC_EBOOK_OPTS := --toc --epub-stylesheet=epub.css --epub-cover-image=cover.jpg --base-header-level=1 --highlight-style=zenburn
 
 # download kindlegen from http://www.amazon.com/gp/feature.html?ie=UTF8&docId=1000765211
@@ -52,11 +52,11 @@ $(IMAGES_DIR):
 	
 # generate PlantUML diagramms
 $(IMAGES_DIR)\\%.png: %.plantuml
-	java -jar ref\plantuml.jar -charset UTF-8  -o $(IMAGES_DIR) $<
+	java -jar ref/plantuml.jar -charset UTF-8  -o $(IMAGES_DIR) $<
 	
 # generate PDF
 $(BUILD_DIR)/%.pdf: %.md
-	$(PANDOC) $(PANDOC_PDF_OPTS) --from markdown_github+mmd_title_block+table_captions+multiline_tables+grid_tables+implicit_figures --self-contained --toc --chapters --base-header-level=1 --number-sections --variable mainfont="Liberation Serif" --variable sansfont="Liberation Sans" --variable monofont="Liberation Mono" --variable fontsize=10pt --variable documentclass=book -V geometry:margin=2cm -o $@ $<
+	$(PANDOC) $(PANDOC_PDF_OPTS) --from markdown_github+mmd_title_block+table_captions+multiline_tables+grid_tables+implicit_figures --self-contained --toc --top-level-division=chapter --base-header-level=1 --number-sections --variable mainfont="Liberation Serif" --variable sansfont="Liberation Sans" --variable monofont="Liberation Mono" --variable fontsize=10pt --variable documentclass=book -V geometry:margin=2cm -o $@ $<
 
 # generate both iBooks (.epub) and then Kindle (.mobi) formats
 $(BUILD_DIR)/%.epub: %.md
@@ -65,7 +65,7 @@ $(BUILD_DIR)/%.epub: %.md
 
 # generate Microsoft Word documents (.docx)
 $(BUILD_DIR)/%.docx: %.md
-	$(PANDOC)  --from markdown_github+mmd_title_block+table_captions+multiline_tables+grid_tables+implicit_figures --reference-docx=ref/MDL_Tech-Med_7.docm --table-of-contents -o $@ $<
+	$(PANDOC)  --from markdown_github+mmd_title_block+table_captions+multiline_tables+grid_tables+implicit_figures --reference-doc=ref/MDL_Tech-Med_7.docm --table-of-contents -o $@ $<
 
 # generate files suitable for pasting into mediawiki
 $(BUILD_DIR)/%.mediawiki: %.md
