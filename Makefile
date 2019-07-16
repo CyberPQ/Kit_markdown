@@ -7,7 +7,6 @@ PANDOC := pandoc
 
 # pandoc options
 # Liberation fonts: http://en.wikipedia.org/wiki/Liberation_fonts
-#PANDOC_PDF_OPTS := --toc --top-level-division=chapter --base-header-level=1 --number-sections --template=virsto_doc.tex --variable mainfont="Liberation Serif" --variable sansfont="Liberation Sans" --variable monofont="Liberation Mono" --variable fontsize=12pt --variable documentclass=book
 PANDOC_PDF_OPTS :=--self-contained --toc --top-level-division=chapter --base-header-level=1 --number-sections --variable mainfont="Liberation Serif" --variable sansfont="Liberation Sans" --variable monofont="Liberation Mono" --variable fontsize=10pt --variable documentclass=book -V geometry:margin=2cm
 PANDOC_EBOOK_OPTS := --toc --epub-stylesheet=epub.css --epub-cover-image=cover.jpg --base-header-level=1 --highlight-style=zenburn
 
