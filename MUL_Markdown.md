@@ -150,6 +150,11 @@ Voici un exemple de liste numérotée :
  2. Milou
  2. Haddock
  
+Et un exemple de *todo list* (cases à cocher) :
+ - [ ] non coché
+ - [x] coché
+ 
+ 
 ### Titre de niveau 3
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae nunc vitae nulla feugiat tempor eu vitae lacus. Vestibulum malesuada consequat magna at eleifend. In hac habitasse platea dictumst. Cras placerat molestie sem non feugiat. Etiam sit amet metus vel ligula egestas laoreet non sit amet lacus. Praesent quis quam non augue pellentesque placerat. Sed et leo id odio imperdiet tempor. In dapibus elit in mauris hendrerit dictum. Donec quis nibh eu ipsum auctor varius. Pellentesque quis scelerisque tellus. Etiam a augue nulla. Nam placerat mi ac massa mattis, nec vehicula diam interdum. Aliquam erat volutpat. Ut eu tempor risus.
@@ -221,7 +226,7 @@ Exemples de diagrammes de Gantt générés à l'aide de PlantUML :
 
 ![Figure 7 : Diagramme de Gantt](images/UML_gantt_002.png)
 
-## Titre de niveau 2
+## Notations mathématiques
 
 Exemple de notation mathématique, en mettant le texte entre deux dollars : 
 
@@ -232,3 +237,50 @@ Exemple de notation mathématique, en mettant le texte entre deux dollars :
    a_1 & b_1 \\
    a_2 & b_2 
 \end{bmatrix}$
+
+## Diagrammes divers
+
+Example usage:
+
+```{.plantuml caption="This is an image, created by **PlantUML**."}
+@startuml
+Alice -> Bob: Authentication Request Bob --> Alice: Authentication Response
+Alice -> Bob: Another authentication Request Alice <-- Bob: another Response
+@enduml
+```
+
+### Graphviz
+To use Graphviz you only need to install Graphviz, as you can read
+on its [website](http://www.graphviz.org/). There are no other
+dependencies.
+
+This filter assumes that the `dot` command is located in the path
+and therefore can be used from any location. Alternatively, you can
+set the environment variable `DOT` or use the pandoc's meta variable
+`dotPath`.
+
+Example usage from [the Graphviz
+gallery](https://graphviz.gitlab.io/_pages/Gallery/directed/fsm.html):
+
+```{.graphviz caption="This is an image, created by **Graphviz**'s dot."}
+digraph finite_state_machine {
+	rankdir=LR;
+	size="8,5"
+	node [shape = doublecircle]; LR_0 LR_3 LR_4 LR_8;
+	node [shape = circle];
+	LR_0 -> LR_2 [ label = "SS(B)" ];
+	LR_0 -> LR_1 [ label = "SS(S)" ];
+	LR_1 -> LR_3 [ label = "S($end)" ];
+	LR_2 -> LR_6 [ label = "SS(b)" ];
+	LR_2 -> LR_5 [ label = "SS(a)" ];
+	LR_2 -> LR_4 [ label = "S(A)" ];
+	LR_5 -> LR_7 [ label = "S(b)" ];
+	LR_5 -> LR_5 [ label = "S(a)" ];
+	LR_6 -> LR_6 [ label = "S(b)" ];
+	LR_6 -> LR_5 [ label = "S(a)" ];
+	LR_7 -> LR_8 [ label = "S(b)" ];
+	LR_7 -> LR_5 [ label = "S(a)" ];
+	LR_8 -> LR_6 [ label = "S(b)" ];
+	LR_8 -> LR_5 [ label = "S(a)" ];
+}
+```
