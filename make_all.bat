@@ -30,13 +30,13 @@ if not exist %BUILD_DIR% mkdir %BUILD_DIR%
 rem -------------------------------------------------------------------
 rem Options pandoc
 rem -------------------------------------------------------------------
-SET INPUT_FORMAT=--from markdown_github+mmd_title_block+table_captions+multiline_tables+grid_tables+implicit_figures
+SET INPUT_FORMAT=--from markdown_github+mmd_title_block+table_captions+multiline_tables+grid_tables+implicit_figures+tex_math_dollars
  
-SET HTML_OPTIONS=--self-contained --standalone --table-of-contents --css=ref\style.css --number-sections
+SET HTML_OPTIONS=--self-contained --standalone --table-of-contents --css=ref\style.css --number-sections --mathml
 
-SET DOCX_OPTIONS=--reference-doc=ref\MDL_Tech-Med_7.docm --table-of-contents
+SET DOCX_OPTIONS=--reference-doc=ref\MDL_Tech-Med.docm --table-of-contents
 
-SET PDF_OPTIONS=--self-contained --toc --top-level-division=chapter --base-header-level=1 --number-sections --variable mainfont="Liberation Serif" --variable sansfont="Liberation Sans" --variable monofont="Liberation Mono" --variable fontsize=10pt --variable documentclass=book -V geometry:margin=2cm 
+SET PDF_OPTIONS=--self-contained --toc --top-level-division=chapter --shift-heading-level-by=1 --number-sections --variable mainfont="Liberation Serif" --variable sansfont="Liberation Sans" --variable monofont="Liberation Mono" --variable fontsize=10pt --variable documentclass=book -V geometry:margin=2cm
 
 
 rem Petit raccourcit pour ne g‚n‚rer que les documents (pas les images) en appelant le batch avec le paramŠtre 'md'

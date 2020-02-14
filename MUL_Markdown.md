@@ -220,3 +220,15 @@ Exemples de diagrammes de Gantt générés à l'aide de PlantUML :
 ![Figure 6 : Diagramme de Gantt](images/UML_gantt_001.png)
 
 ![Figure 7 : Diagramme de Gantt](images/UML_gantt_002.png)
+
+## Titre de niveau 2
+
+Exemple de notation mathématique, en mettant le texte entre deux dollars : 
+
+- $1 + 1 = 2$
+- $\sqrt{\frac{x^2}{3}}$
+- $x_{1,2} = \frac{- b \pm \sqrt{\Delta}}{2a}$
+- $\begin{bmatrix}
+   a_1 & b_1 \\
+   a_2 & b_2 
+\end{bmatrix}$
