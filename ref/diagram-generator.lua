@@ -57,6 +57,9 @@ if FORMAT == "docx" then
 elseif FORMAT == "pptx" then
     filetype = "png"
     mimetype = "image/png"
+elseif FORMAT == "latex" then
+    filetype = "png"
+    mimetype = "image/png"
 elseif FORMAT == "rtf" then
     filetype = "png"
     mimetype = "image/png"
