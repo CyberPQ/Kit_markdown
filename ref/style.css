@@ -39,6 +39,11 @@
    Only appears if one of those three are in the document.
 */
 
+body {
+		margin-left: 420px; /* Same as the width of the sidenav */
+
+}
+
 div#header, header
     {
     /* Put border on bottom. Separates it from TOC or body that comes after it. */
@@ -60,6 +65,18 @@ div#header, header
    NOTE: this doesn't support Pandoc's --id-prefix option for #TOC and #header. 
    Probably would need to use div[id$='TOC'] and div[id$='header'] as selectors.
 */
+
+nav {
+	background-color: Linen; 
+	height: 100%;
+	width: 400px;
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	overflow-x: hidden;
+	padding-top: 20px;
+}
 
 div#TOC, nav#TOC
     {
