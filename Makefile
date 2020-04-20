@@ -53,7 +53,7 @@ $(IMAGES_DIR):
 	@mkdir -p $@
 	
 # generate PlantUML diagramms
-$(IMAGES_DIR/%.png: %.plantuml
+$(IMAGES_DIR)/%.png: %.plantuml
 	java -jar ref/plantuml.jar -charset UTF-8  -o $(IMAGES_DIR) $<
 	
 # generate PDF
