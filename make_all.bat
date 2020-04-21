@@ -12,6 +12,7 @@ rem
 rem  Paramètres d'appel :
 rem     - 'make_all.bat md'    Ne genere QUE les fichiers issues du markdown (pas les images PlantUML)
 rem     - 'make_all.bat uml'   Ne genere QUE les images PlantUML (pas les fichiers issues du markdown)
+rem     - 'make_all.bat vsc'   Affiche les options pour le plugin 'vscode-pandoc' dans Visual Studio Code
 rem 
 rem =======================================================================================================
  
@@ -44,6 +45,9 @@ SET PDF_OPTIONS=--self-contained --toc --top-level-division=chapter --shift-head
 rem Petit raccourcit pour ne g‚n‚rer que les documents (pas les images) en appelant le batch avec le paramŠtre 'md'
 if "%1"=="md" GOTO :Make_MD
 
+rem Petit raccourcit pour afficher les options pour Visual Studio Code avec le paramŠtre 'vsc'
+if "%1"=="vsc" GOTO :Make_VSC
+
 echo.
 echo === Generation complete de la documentation dans le repertoire "%BUILD_DIR%" ===
 echo.
@@ -74,6 +78,63 @@ FOR %%I in (*.md) DO (
                 %PANDOC% %INPUT_FORMAT% "%%~nI.md" -t latex -o "%BUILD_DIR%\%%~nI.pdf"  %LUA_FILTER% %PDF_OPTIONS%
 )
 echo.
+GOTO :Fin
+
+:Make_VSC
+rem --------------------------------------------------------------------------
+rem G‚n‚ration des options du plugin 'vscode-pandoc' dans Visual Studio Code
+rem --------------------------------------------------------------------------
+:Make_MD
+echo Option pour le plugin 'vscode-pandoc' dans Visual Studio Code :
+
+rem remplacement de "ref\" par le bon chemin, sp‚cifique à l'installation
+setlocal ENABLEDELAYEDEXPANSION
+SET NEWPATH=%~dp0ref\
+SET "INPUT_FORMAT=%INPUT_FORMAT:ref\=!NEWPATH!%"
+SET "LUA_FILTER=%LUA_FILTER:ref\=!NEWPATH!%"
+SET "DOCX_OPTIONS=%DOCX_OPTIONS:ref\=!NEWPATH!%"
+SET "HTML_OPTIONS=%HTML_OPTIONS:ref\=!NEWPATH!%"
+SET "PDF_OPTIONS=%PDF_OPTIONS:ref\=!NEWPATH!%"
+
+rem remplacement des backslashes par des slashes (compatible JSON)
+SET "INPUT_FORMAT=%INPUT_FORMAT:\=/%"
+SET "LUA_FILTER=%LUA_FILTER:\=/%"
+SET "DOCX_OPTIONS=%DOCX_OPTIONS:\=/%"
+SET "HTML_OPTIONS=%HTML_OPTIONS:\=/%"
+SET "PDF_OPTIONS=%PDF_OPTIONS:\=/%"
+
+rem echapement des guillemets doubles (compatible JSON)
+SET "INPUT_FORMAT=%INPUT_FORMAT:"=\"%"
+SET "LUA_FILTER=%LUA_FILTER:"=\"%"
+SET "DOCX_OPTIONS=%DOCX_OPTIONS:"=\"%"
+SET "HTML_OPTIONS=%HTML_OPTIONS:"=\"%"
+SET "PDF_OPTIONS=%PDF_OPTIONS:"=\"%"
+
+rem echo.
+rem echo INPUT_FORMAT : %INPUT_FORMAT%
+rem echo LUA_FILTER   : %LUA_FILTER%
+rem echo DOCX_OPTIONS : %DOCX_OPTIONS%
+rem echo HTML_OPTIONS : %HTML_OPTIONS%
+rem echo PDF_OPTIONS  : %PDF_OPTIONS%
+rem echo.
+
+echo.
+echo pandoc.docxOptString: 
+echo ---------------------
+echo %INPUT_FORMAT% %LUA_FILTER% %DOCX_OPTIONS%
+
+echo.
+echo pandoc.htmlOptString:
+echo ---------------------
+echo %INPUT_FORMAT% %LUA_FILTER% %HTML_OPTIONS%
+
+echo.
+echo pandoc.pdfOptString:
+echo ---------------------
+echo %INPUT_FORMAT% %LUA_FILTER% %PDF_OPTIONS%
+
+echo.
+
+GOTO :Fin
  
 :Fin 
-echo ok !
