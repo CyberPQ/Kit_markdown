@@ -8,11 +8,14 @@ PANDOC := pandoc
 # pandoc options
 # Liberation fonts: http://en.wikipedia.org/wiki/Liberation_fonts
 EBOOK_OPTIONS := --toc --epub-stylesheet=epub.css --epub-cover-image=cover.jpg --base-header-level=1 --highlight-style=zenburn
-INPUT_FORMAT :=--from markdown+mmd_title_block+table_captions+multiline_tables+grid_tables+implicit_figures+task_lists+lists_without_preceding_blankline+tex_math_dollars
+#INPUT_FORMAT :=--from markdown+mmd_title_block+table_captions+multiline_tables+grid_tables+implicit_figures+task_lists+lists_without_preceding_blankline+tex_math_dollars
+INPUT_FORMAT :=--from markdown+mmd_title_block+table_captions+multiline_tables+grid_tables+implicit_figures+lists_without_preceding_blankline+tex_math_dollars
 LUA_FILTER :=--lua-filter=ref/diagram-generator.lua --metadata=plantumlPath:"ref/plantuml.jar" #--metadata=dotPath:"c:\Program Files (x86)\Graphviz2.38\bin\dot.exe"
 HTML_OPTIONS :=--self-contained --standalone --table-of-contents --css=ref/style.css --number-sections --mathjax
 DOCX_OPTIONS :=--self-contained --standalone --reference-doc=ref/MDL_Tech-Med.docm --table-of-contents
-PDF_OPTIONS :=--self-contained --toc --top-level-division=chapter --shift-heading-level-by=1 --number-sections --variable mainfont="Liberation Serif" --variable sansfont="Liberation Sans" --variable monofont="Liberation Mono" --variable fontsize=10pt --variable documentclass=book -V geometry:margin=2cm
+ODT_OPTIONS :=--self-contained --standalone --reference-doc=ref/MDL_Tech-Med.odt --table-of-contents
+#PDF_OPTIONS :=--self-contained --toc --top-level-division=chapter --shift-heading-level-by=1 --number-sections --variable mainfont="Liberation Serif" --variable sansfont="Liberation Sans" --variable monofont="Liberation Mono" --variable fontsize=10pt --variable documentclass=book -V geometry:margin=2cm
+PDF_OPTIONS :=--self-contained --toc --top-level-division=chapter --base-header-level=1 --number-sections --variable mainfont="Liberation Serif" --variable sansfont="Liberation Sans" --variable monofont="Liberation Mono" --variable fontsize=10pt --variable documentclass=book -V geometry:margin=2cm
 
 # download kindlegen from http://www.amazon.com/gp/feature.html?ie=UTF8&docId=1000765211
 KINDLEGEN := kindlegen
@@ -22,15 +25,16 @@ MARKDOWN := $(wildcard *.md)
 PDF   := $(patsubst %.md, $(BUILD_DIR)/%.pdf       ,$(MARKDOWN))
 EBOOK := $(patsubst %.md, $(BUILD_DIR)/%.epub      ,$(MARKDOWN))
 DOCX  := $(patsubst %.md, $(BUILD_DIR)/%.docx      ,$(MARKDOWN))
+ODT   := $(patsubst %.md, $(BUILD_DIR)/%.odt       ,$(MARKDOWN))
 WIKI  := $(patsubst %.md, $(BUILD_DIR)/%.mediawiki ,$(MARKDOWN))
 HTML  := $(patsubst %.md, $(BUILD_DIR)/%.html      ,$(MARKDOWN))
 PLANTUML := $(wildcard *.plantuml)
 PNG  := $(patsubst %.plantuml, images/%.png        ,$(PLANTUML))
 
-.PHONY: all checkdirs pdf ebook doc wiki html clean png
+.PHONY: all checkdirs pdf ebook doc odt wiki html clean png
 
 #all: checkdirs  $(HTML) $(PDF) $(EBOOK) $(DOCX) $(WIKI)
-all: checkdirs png $(HTML) $(DOCX) $(PDF)
+all: checkdirs png $(HTML) $(DOCX) $(ODT) $(PDF)
 
 checkdirs: $(BUILD_DIR) $(IMAGES_DIR)
 
@@ -39,6 +43,8 @@ pdf: checkdirs png $(PDF)
 ebook: checkdirs png $(EBOOK)
 
 doc: checkdirs png $(DOCX)
+
+odt: checkdirs png $(ODT)
 
 wiki: checkdirs png $(WIKI)
 
@@ -68,6 +74,10 @@ $(BUILD_DIR)/%.epub: %.md
 # generate Microsoft Word documents (.docx)
 $(BUILD_DIR)/%.docx: %.md
 	$(PANDOC) $(INPUT_FORMAT)  $< -t docx -o $@ $(LUA_FILTER%)  $(DOCX_OPTIONS)
+
+# generate LibreOffice documents (.odt)
+$(BUILD_DIR)/%.odt: %.md
+	$(PANDOC) $(INPUT_FORMAT)  $< -t odt -o $@ $(LUA_FILTER%)  $(ODT_OPTIONS)
 
 # generate files suitable for pasting into mediawiki
 $(BUILD_DIR)/%.mediawiki: %.md
