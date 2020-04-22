@@ -1,6 +1,8 @@
-﻿Title:  Utilisation du Markdown avec Pandoc
-Author:  Baptiste PIERARD
-Date:    14 septembre 2015
+﻿---
+title: Utilisation du Markdown avec Pandoc
+author: Baptiste PIERARD
+date: 21 avril 2020
+---
 
 INTRODUCTION
 ==================

@@ -1,3 +1,7 @@
+---
+title: Présentation du Kit Markdown
+---
+
 # Kit_markdown
 
 Kit nécessaire pour la production de Markdown et PlantUML, en utilisant le logiciel [Pandoc](https://pandoc.org/).
