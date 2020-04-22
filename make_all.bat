@@ -119,20 +119,9 @@ rem echo PDF_OPTIONS  : %PDF_OPTIONS%
 rem echo.
 
 echo.
-echo pandoc.docxOptString: 
-echo ---------------------
-echo %INPUT_FORMAT% %LUA_FILTER% %DOCX_OPTIONS%
-
-echo.
-echo pandoc.htmlOptString:
-echo ---------------------
-echo %INPUT_FORMAT% %LUA_FILTER% %HTML_OPTIONS%
-
-echo.
-echo pandoc.pdfOptString:
-echo ---------------------
-echo %INPUT_FORMAT% %LUA_FILTER% %PDF_OPTIONS%
-
+echo %TAB%"pandoc.docxOptString": "%INPUT_FORMAT% %LUA_FILTER% %DOCX_OPTIONS%",
+echo %TAB%"pandoc.htmlOptString": "%INPUT_FORMAT% %LUA_FILTER% %HTML_OPTIONS%",
+echo %TAB%"pandoc.pdfOptString": "%INPUT_FORMAT% %LUA_FILTER% %PDF_OPTIONS%"
 echo.
 
 GOTO :Fin
