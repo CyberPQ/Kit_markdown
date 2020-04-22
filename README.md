@@ -71,7 +71,9 @@ ls -1 out
 > Les chemins "en dur" des lignes suivantes doivent bien évidemment être ajustés !
 
 ```json
-    "pandoc.docxOptString": "",
-    "pandoc.htmlOptString": "",     // A FAIRE !!!
-    "pandoc.pdfOptString": ""
+{
+    "pandoc.docxOptString": "-f markdown_github+mmd_title_block+table_captions+multiline_tables+grid_tables+implicit_figures+inline_notes --reference-doc=/home/bpr/Documents/Kit_markdown/ref/MDL_Tech-Med_7.docm --toc ",
+    "pandoc.pdfOptString": "-f markdown_github+mmd_title_block+table_captions+multiline_tables+grid_tables+implicit_figures+inline_notes --self-contained --toc --top-level-division=chapter --base-header-level=1 --number-sections --variable mainfont=\"Liberation Serif\" --variable sansfont=\"Liberation Sans\" --variable monofont=\"Liberation Mono\" --variable fontsize=10pt --variable documentclass=book -V geometry:margin=2cm ",
+    "pandoc.htmlOptString": "-s -t html5 --toc -N -f markdown_github+mmd_title_block+table_captions+multiline_tables+grid_tables+implicit_figures+inline_notes --css=/home/bpr/Documents/Kit_markdown/ref/style.css "
+}
 ```
