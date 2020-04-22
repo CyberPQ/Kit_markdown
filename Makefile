@@ -10,7 +10,7 @@ PANDOC := pandoc
 EBOOK_OPTIONS := --toc --epub-stylesheet=epub.css --epub-cover-image=cover.jpg --base-header-level=1 --highlight-style=zenburn
 INPUT_FORMAT :=--from markdown+mmd_title_block+table_captions+multiline_tables+grid_tables+implicit_figures+task_lists+lists_without_preceding_blankline+tex_math_dollars
 LUA_FILTER :=--lua-filter=ref/diagram-generator.lua --metadata=plantumlPath:"ref/plantuml.jar" #--metadata=dotPath:"c:\Program Files (x86)\Graphviz2.38\bin\dot.exe"
-HTML_OPTIONS :=--self-contained --standalone --table-of-contents --css=ref/style.css --number-sections --mathml
+HTML_OPTIONS :=--self-contained --standalone --table-of-contents --css=ref/style.css --number-sections --mathjax
 DOCX_OPTIONS :=--self-contained --standalone --reference-doc=ref/MDL_Tech-Med.docm --table-of-contents
 PDF_OPTIONS :=--self-contained --toc --top-level-division=chapter --shift-heading-level-by=1 --number-sections --variable mainfont="Liberation Serif" --variable sansfont="Liberation Sans" --variable monofont="Liberation Mono" --variable fontsize=10pt --variable documentclass=book -V geometry:margin=2cm
 

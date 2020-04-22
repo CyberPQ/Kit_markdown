@@ -1,4 +1,4 @@
----
+﻿---
 title: Utilisation du Markdown avec Pandoc
 author: Baptiste PIERARD
 date: 21 avril 2020
@@ -239,6 +239,7 @@ Exemple de notation mathématique, en mettant le texte entre deux dollars :
    a_1 & b_1 \\
    a_2 & b_2 
 \end{bmatrix}$
+- $\sum_{x=0}^n f(x)$
 
 ## Diagrammes divers
 
