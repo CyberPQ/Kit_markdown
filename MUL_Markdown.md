@@ -1,4 +1,4 @@
-﻿---
+---
 title: Utilisation du Markdown avec Pandoc
 author: Baptiste PIERARD
 date: 21 avril 2020
