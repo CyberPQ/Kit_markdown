@@ -32,15 +32,11 @@ rem -------------------------------------------------------------------
 rem Options pandoc
 rem -------------------------------------------------------------------
 SET INPUT_FORMAT=--from markdown+mmd_title_block+table_captions+multiline_tables+grid_tables+implicit_figures+task_lists+lists_without_preceding_blankline+tex_math_dollars
-
 SET LUA_FILTER=--lua-filter=ref\diagram-generator.lua --metadata=plantumlPath:"ref\plantuml.jar" --metadata=dotPath:"c:\Program Files (x86)\Graphviz2.38\bin\dot.exe"
- 
 SET HTML_OPTIONS=--self-contained --standalone --table-of-contents --css=ref\style.css --number-sections --mathml
-
 SET DOCX_OPTIONS=--self-contained --standalone --reference-doc=ref\MDL_Tech-Med.docm --table-of-contents
-
+SET ODT_OPTIONS=--self-contained --standalone --reference-doc=ref\MDL_Tech-Med.odt --table-of-contents
 SET PDF_OPTIONS=--self-contained --toc --top-level-division=chapter --shift-heading-level-by=1 --number-sections --variable mainfont="Liberation Serif" --variable sansfont="Liberation Sans" --variable monofont="Liberation Mono" --variable fontsize=10pt --variable documentclass=book -V geometry:margin=2cm
-
 
 rem Petit raccourcit pour ne g‚n‚rer que les documents (pas les images) en appelant le batch avec le paramŠtre 'md'
 if "%1"=="md" GOTO :Make_MD
@@ -74,6 +70,7 @@ echo Generation des doc aux differents formats :
 FOR %%I in (*.md) DO (
                 echo %TAB%- %%I...
                 %PANDOC% %INPUT_FORMAT% "%%~nI.md" -t docx  -o "%BUILD_DIR%\%%~nI.docx" %LUA_FILTER% %DOCX_OPTIONS%
+                %PANDOC% %INPUT_FORMAT% "%%~nI.md" -t odt   -o "%BUILD_DIR%\%%~nI.odt"  %LUA_FILTER% %ODT_OPTIONS%
                 %PANDOC% %INPUT_FORMAT% "%%~nI.md" -t html5 -o "%BUILD_DIR%\%%~nI.html" %LUA_FILTER% %HTML_OPTIONS%
                 %PANDOC% %INPUT_FORMAT% "%%~nI.md" -t latex -o "%BUILD_DIR%\%%~nI.pdf"  %LUA_FILTER% %PDF_OPTIONS%
 )
@@ -119,6 +116,7 @@ rem echo PDF_OPTIONS  : %PDF_OPTIONS%
 rem echo.
 
 echo.
+
 echo %TAB%"pandoc.docxOptString": "%INPUT_FORMAT% %LUA_FILTER% %DOCX_OPTIONS%",
 echo %TAB%"pandoc.htmlOptString": "%INPUT_FORMAT% %LUA_FILTER% %HTML_OPTIONS%",
 echo %TAB%"pandoc.pdfOptString": "%INPUT_FORMAT% %LUA_FILTER% %PDF_OPTIONS%"
