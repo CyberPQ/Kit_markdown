@@ -55,7 +55,7 @@ C'est évidemment beaucoup plus simple que sous Windows ;-) !
 
 ```bash
 sudo apt update
-sudo apt install pandoc graphviz texlive-latex-base texlive-full
+sudo apt install pandoc graphviz texlive-latex-base texlive-full libjs-mathjax
 git clone git@github.com:CyberPQ/Kit_markdown.git
 ```
 
