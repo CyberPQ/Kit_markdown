@@ -54,7 +54,7 @@ $(IMAGES_DIR):
 	
 # generate PlantUML diagramms
 $(IMAGES_DIR)/%.png: %.plantuml
-	java -jar ref/plantuml.jar -charset UTF-8  -o $(IMAGES_DIR) $<
+	java -Djava.awt.headless=true -jar ref/plantuml.jar -charset UTF-8  -o $(IMAGES_DIR) $<
 	
 # generate PDF
 $(BUILD_DIR)/%.pdf: %.md
