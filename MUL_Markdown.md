@@ -146,6 +146,10 @@ Et voila un exemple de liste non-numérotée :
  - poire
  - carotte
  - navet
+	- nabet bleu
+		- proute
+		- merde
+	- nabet rouge
  
 Voici un exemple de liste numérotée :
  1. Tintin

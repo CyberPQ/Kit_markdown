@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <link href="data:text/css;charset=utf-8,%0A%0A%0A%0Abody%20%7B%0Amargin%2Dleft%3A%20420px%3B%20%0A%7D%0Adiv%23header%2C%20header%0A%7B%0A%0Aborder%2Dbottom%3A%201px%20solid%20%23aaa%3B%0Amargin%2Dbottom%3A%200%2E5em%3B%0A%7D%0A%2Etitle%20%0A%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0A%2Eauthor%2C%20%2Edate%20%0A%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0A%0Anav%20%7B%0Abackground%2Dcolor%3A%20Linen%3B%20height%3A%20100%25%3B%0Awidth%3A%20400px%3B%0Aposition%3A%20fixed%3B%0Az%2Dindex%3A%201%3B%0Atop%3A%200%3B%0Aleft%3A%200%3B%0Aoverflow%2Dx%3A%20hidden%3B%0Apadding%2Dtop%3A%2020px%3B%0A%7D%0Adiv%23TOC%2C%20nav%23TOC%0A%7B%0A%0Aborder%2Dbottom%3A%201px%20solid%20%23aaa%3B%0Amargin%2Dbottom%3A%200%2E5em%3B%0A%7D%0A%40media%20print%0A%7B%0Adiv%23TOC%2C%20nav%23TOC%0A%7B%0A%0Adisplay%3A%20none%3B%0A%7D%0A%7D%0A%0Ah1%2C%20h2%2C%20h3%2C%20h4%2C%20h5%2C%20h6%0A%7B%0Afont%2Dfamily%3A%20%22Helvetica%20Neue%22%2C%20Helvetica%2C%20%22Liberation%20Sans%22%2C%20Calibri%2C%20Arial%2C%20sans%2Dserif%3B%20%0A%0Apage%2Dbreak%2Dafter%3A%20avoid%3B%20%0A%7D%0Ah1%0A%7B%0Aborder%2Dtop%2Dwidth%20%3A%201pt%3B%0Aborder%2Dtop%2Dstyle%20%3A%20solid%3B%0Aborder%2Dtop%2Dcolor%20%3A%20%23000%3B%0Abackground%2Dcolor%3A%20%23ccecff%3B%20%0Aborder%2Dbottom%2Dwidth%20%3A%201pt%3B%0Aborder%2Dbottom%2Dstyle%20%3A%20solid%3B%0Aborder%2Dbottom%2Dcolor%20%3A%20%23000%3B%0A%7D%0Ah2%0A%7B%0Atext%2Ddecoration%3A%20underline%3B%0A%7D%0A%0Adiv%20div%2C%20section%20section%20%0A%7B%0Amargin%2Dleft%3A%202em%3B%20%0A%7D%0Ap%20%7B%7D%0Ablockquote%20%7B%0Aborder%2Dleft%3A%204px%20solid%20%23DDD%3B%0Apadding%3A%200%2015px%3B%0Acolor%3A%20%23777%3B%0A%7D%0Ablockquote%3E%3Afirst%2Dchild%20%7B%0Amargin%2Dtop%3A%200px%3B%0A%7D%0Ablockquote%3E%3Alast%2Dchild%20%7B%0Amargin%2Dbottom%3A%200px%3B%0A%7D%0Ali%20%0A%7B%0A%7D%0Ali%20%3E%20p%20%0A%7B%0Amargin%2Dtop%3A%201em%3B%20%0A%7D%0Aul%20%0A%7B%0A%7D%0Aul%20li%20%0A%7B%0A%7D%0Aol%20%0A%7B%0A%7D%0Aol%20li%20%0A%7B%0A%7D%0Ahr%20%7B%7D%0A%0Asub%20%0A%7B%0A%7D%0Asup%20%0A%7B%0A%7D%0Aem%20%0A%7B%0A%7D%0Aem%20%3E%20em%20%0A%7B%0Afont%2Dstyle%3A%20normal%3B%0A%7D%0Astrong%20%0A%7B%0A%7D%0A%0Aa%20%0A%7B%0A%0Atext%2Ddecoration%3A%20none%3B%0A%7D%0A%40media%20screen%0A%7B%0Aa%3Ahover%0A%7B%0A%0Atext%2Ddecoration%3A%20underline%3B%0A%7D%0A%7D%0A%40media%20print%0A%7B%0Aa%20%7B%0A%0Acolor%3A%20black%3B%0Abackground%3A%20transparent%3B%0A%7D%0Aa%5Bhref%5E%3D%22http%3A%2F%2F%22%5D%3Aafter%2C%20a%5Bhref%5E%3D%22https%3A%2F%2F%22%5D%3Aafter%0A%7B%0A%0Acontent%3A%20%22%20%28%22%20attr%28href%29%20%22%29%20%22%3B%0Afont%2Dsize%3A%2090%25%3B%0A%7D%0A%7D%0A%0Aimg%0A%7B%0A%0Avertical%2Dalign%3A%20middle%3B%0A%7D%0A%20%0Afigure%20%3E%20img%0A%7B%0A%0Adisplay%3A%20block%3B%0Amargin%2Dleft%3A%20auto%3B%0Amargin%2Dright%3A%20auto%3B%0A%7D%0Ap%2Ecaption%20%0A%7B%0A%0A%7D%0A%0Apre%2C%20code%2C%20sourceCode%20%7B%0Abackground%2Dcolor%3A%20%23d8d8d8%3B%20%0A%0A%0A%0Awhite%2Dspace%3A%20pre%2Dwrap%3B%20%0Awhite%2Dspace%3A%20%2Dmoz%2Dpre%2Dwrap%20%21important%3B%20%0Awhite%2Dspace%3A%20%2Dpre%2Dwrap%3B%20%0Awhite%2Dspace%3A%20%2Do%2Dpre%2Dwrap%3B%20%0Aword%2Dwrap%3A%20break%2Dword%3B%20%0A%0A%7D%0Apre%20%0A%7B%0A%0Apadding%3A%200%2E5em%3B%20%0Aborder%2Dradius%3A%205px%3B%20%0A%0Aborder%3A%201px%20solid%20%23aaa%3B%0A%0Amargin%2Dleft%3A%203em%3B%0Amargin%2Dright%3A%203em%3B%0A%7D%0A%40media%20screen%0A%7B%0Apre%0A%7B%0A%0Awhite%2Dspace%3A%20pre%3B%0Aoverflow%3A%20auto%3B%0A%0Aborder%3A%201px%20dotted%20%23777%3B%0A%7D%0A%7D%0Acode%20%0A%7B%0A%7D%0Ap%20%3E%20code%2C%20li%20%3E%20code%20%0A%7B%0A%0Apadding%2Dleft%3A%202px%3B%0Apadding%2Dright%3A%202px%3B%0A%7D%0Ali%20%3E%20p%20code%20%0A%7B%0A%0Apadding%3A%202px%3B%0A%7D%0A%0Aspan%2Emath%20%0A%7B%0A%0A%7D%0Adiv%2Emath%20%0A%7B%0A%7D%0Aspan%2ELaTeX%20%0A%7B%0A%7D%20eq%20%0A%7B%0A%7D%20%0A%0Atable%0A%7B%0Aborder%2Dcollapse%3A%20collapse%3B%0Aborder%2Dspacing%3A%200%3B%20%0Aborder%2Dwidth%20%3A%202pt%3B%0Aborder%2Dstyle%20%3A%20solid%3B%0Aborder%2Dcolor%20%3A%20%23000%3B%0A%0Amargin%2Dleft%3A%20auto%3B%0Amargin%2Dright%3A%20auto%3B%0A%7D%0Athead%20%0A%7B%0Aborder%2Dbottom%2Dwidth%20%3A%202pt%3B%0Aborder%2Dbottom%2Dstyle%20%3A%20solid%3B%0Aborder%2Dbottom%2Dcolor%20%3A%20%23000%3B%0Abackground%2Dcolor%3A%20%23ccecff%3B%20%0A%7D%0Atr%2Eheader%20%0A%7B%0A%7D%20tbody%20%0A%7B%0A%7D%0A%0Atr%20%7B%0Aborder%2Dwidth%20%3A%201pt%3B%0Aborder%2Dstyle%20%3A%20solid%3B%0Aborder%2Dcolor%20%3A%20%23000%3B%0A%7D%0Atr%2Eodd%3Ahover%2C%20tr%2Eeven%3Ahover%20%0A%7B%0Abackground%2Dcolor%3A%20%23eee%3B%0A%7D%0A%0Atr%2Eodd%20%7B%7D%0Atr%2Eeven%20%7B%7D%0Atd%2C%20th%20%0A%7B%20vertical%2Dalign%3A%20top%3B%20%0Avertical%2Dalign%3A%20baseline%3B%20%0Apadding%2Dleft%3A%200%2E5em%3B%0Apadding%2Dright%3A%200%2E5em%3B%0Apadding%2Dtop%3A%200%2E2em%3B%0Apadding%2Dbottom%3A%200%2E2em%3B%0Aborder%2Dwidth%20%3A%201pt%3B%0Aborder%2Dstyle%20%3A%20solid%3B%0Aborder%2Dcolor%20%3A%20%23000%3B%0A%7D%0A%0A%0Ath%20%0A%7B%0Afont%2Dweight%3A%20bold%3B%20%7D%0Atfoot%20%0A%7B%0A%7D%0Afigcaption%20%2C%20caption%20%0A%7B%0Acaption%2Dside%3A%20bottom%3B%0Aborder%3A%20none%3B%0Afont%2Dsize%3A%200%2E9em%3B%0Afont%2Dstyle%3A%20italic%3B%0Atext%2Dalign%3A%20center%3B%0Amargin%2Dtop%3A%200%2E3em%3B%20padding%2Dtop%3A%200%2E2em%3B%0A%7D%0A%0Adl%20%0A%7B%0Aborder%2Dtop%3A%202pt%20solid%20black%3B%0Apadding%2Dtop%3A%200%2E5em%3B%0Aborder%2Dbottom%3A%202pt%20solid%20black%3B%0A%7D%0Adt%20%0A%7B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0Add%2Bdt%20%0A%7B%0Aborder%2Dtop%3A%201pt%20solid%20black%3B%0Apadding%2Dtop%3A%200%2E5em%3B%0A%7D%0Add%20%0A%7B%0Amargin%2Dbottom%3A%200%2E5em%3B%0A%7D%0Add%2Bdd%20%0A%7B%0Aborder%2Dtop%3A%201px%20solid%20black%3B%20%0A%7D%0A%0Aa%2Efootnote%2C%20a%2EfootnoteRef%20%7B%20%0Afont%2Dsize%3A%20small%3B%20vertical%2Dalign%3A%20text%2Dtop%3B%0A%7D%0Aa%5Bhref%5E%3D%22%23fnref%22%5D%2C%20a%2Ereversefootnote%20%0A%7B%0A%7D%0A%40media%20print%0A%7B%0Aa%5Bhref%5E%3D%22%23fnref%22%5D%2C%20a%2Ereversefootnote%20%0A%7B%0A%0Adisplay%3A%20none%3B%0A%7D%0A%7D%0Adiv%2Efootnotes%20%0A%7B%0A%7D%0Adiv%2Efootnotes%20li%5Bid%5E%3D%22fn%22%5D%20%0A%7B%0A%7D%0A%0A%40media%20print%0A%7B%0A%2Enoprint%0A%7B%0Adisplay%3Anone%3B%0A%7D%0A%7D%0A" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="TOC">
+<ul>
+<li><a href="#kit_markdown"><span class="toc-section-number">1</span> Kit_markdown</a><ul>
+<li><a href="#configuration-pour-visual-code-studio"><span class="toc-section-number">1.1</span> Configuration pour <em>Visual Code Studio</em></a></li>
+</ul></li>
+</ul>
+</div>
+<h1 id="kit_markdown"><span class="header-section-number">1</span> Kit_markdown</h1>
+<p>Kit nécessaire pour la production de Markdown et PlantUML, en utilisant <code>Pandoc</code></p>
+<p>cf. <em>MUL_Markdown.md</em> pour plus de détails</p>
+<h2 id="configuration-pour-visual-code-studio"><span class="header-section-number">1.1</span> Configuration pour <em>Visual Code Studio</em></h2>
+<div class="sourceCode"><pre class="sourceCode json"><code class="sourceCode json">    <span class="er">//--------</span> <span class="er">Pandoc</span> <span class="er">Option</span> <span class="er">Configuration</span> <span class="er">--------</span>
+
+    <span class="er">//</span> <span class="er">pandoc</span> <span class="er">.docx</span> <span class="er">output</span> <span class="er">option</span> <span class="er">template</span> <span class="er">that</span> <span class="er">you</span> <span class="er">would</span> <span class="er">like</span> <span class="er">to</span> <span class="er">use</span>
+    <span class="er">&quot;pandoc.docxOptString&quot;:</span> <span class="er">&quot;--from</span> <span class="er">markdown+mmd_title_block+table_captions+multiline_tables+grid_tables+implicit_figures+task_lists+lists_without_preceding_blankline+tex_math_dollars</span> <span class="er">--lua-filter=c:/Users/baptiste.pierard/Documents/Perso/Kit_markdown_from_GitHub/ref/diagram-generator.lua</span> <span class="er">--metadata=plantumlPath:\&quot;c:/Users/baptiste.pierard/Documents/Perso/Kit_markdown_from_GitHub/ref/plantuml.jar\&quot;</span> <span class="er">--metadata=dotPath:\&quot;c:\\Program</span> <span class="er">Files</span> <span class="er">(x86)\\Graphviz2.38\\bin\\dot.exe\&quot;</span> <span class="er">--self-contained</span> <span class="er">--standalone</span> <span class="er">--reference-doc=\&quot;c:/Users/baptiste.pierard/Documents/Perso/Kit_markdown_from_GitHub/ref/MDL_Tech-Med.docm\&quot;</span> <span class="er">--table-of-contents&quot;,</span>
+    
+    <span class="er">//</span> <span class="er">pandoc</span> <span class="er">.html</span> <span class="er">output</span> <span class="er">option</span> <span class="er">template</span> <span class="er">that</span> <span class="er">you</span> <span class="er">would</span> <span class="er">like</span> <span class="er">to</span> <span class="er">use</span>
+    <span class="er">&quot;pandoc.htmlOptString&quot;:</span> <span class="er">&quot;--from</span> <span class="er">markdown+mmd_title_block+table_captions+multiline_tables+grid_tables+implicit_figures+task_lists+lists_without_preceding_blankline+tex_math_dollars</span> <span class="er">--lua-filter=c:/Users/baptiste.pierard/Documents/Perso/Kit_markdown_from_GitHub/ref/diagram-generator.lua</span> <span class="er">--metadata=plantumlPath:\&quot;c:/Users/baptiste.pierard/Documents/Perso/Kit_markdown_from_GitHub/ref/plantuml.jar\&quot;</span> <span class="er">--metadata=dotPath:\&quot;c:\\Program</span> <span class="er">Files</span> <span class="er">(x86)\\Graphviz2.38\\bin\\dot.exe\&quot;</span> <span class="er">--self-contained</span> <span class="er">--standalone</span> <span class="er">--table-of-contents</span> <span class="er">--css=\&quot;c:/Users/baptiste.pierard/Documents/Perso/Kit_markdown_from_GitHub/ref/style.css\&quot;</span> <span class="er">--number-sections</span> <span class="er">--mathml&quot;,</span>
+
+    <span class="er">//</span> <span class="er">pandoc</span> <span class="er">.pdf</span> <span class="er">output</span> <span class="er">option</span> <span class="er">template</span> <span class="er">that</span> <span class="er">you</span> <span class="er">would</span> <span class="er">like</span> <span class="er">to</span> <span class="er">use</span>
+    <span class="er">&quot;pandoc.pdfOptString&quot;:</span> <span class="er">&quot;--from</span> <span class="er">markdown+mmd_title_block+table_captions+multiline_tables+grid_tables+implicit_figures+task_lists+lists_without_preceding_blankline+tex_math_dollars</span> <span class="er">--lua-filter=c:/Users/baptiste.pierard/Documents/Perso/Kit_markdown_from_GitHub/ref/diagram-generator.lua</span> <span class="er">--metadata=plantumlPath:\&quot;c:/Users/baptiste.pierard/Documents/Perso/Kit_markdown_from_GitHub/ref/plantuml.jar\&quot;</span> <span class="er">--metadata=dotPath:\&quot;c:\\Program</span> <span class="er">Files</span> <span class="er">(x86)\\Graphviz2.38\\bin\\dot.exe\&quot;</span> <span class="er">--self-contained</span> <span class="er">--toc</span> <span class="er">--top-level-division=chapter</span> <span class="er">--shift-heading-level-by=1</span> <span class="er">--number-sections</span> <span class="er">--variable</span> <span class="er">mainfont=\&quot;Liberation</span> <span class="er">Serif\&quot;</span> <span class="er">--variable</span> <span class="er">sansfont=\&quot;Liberation</span> <span class="er">Sans\&quot;</span> <span class="er">--variable</span> <span class="er">monofont=\&quot;Liberation</span> <span class="er">Mono\&quot;</span> <span class="er">--variable</span> <span class="er">fontsize=10pt</span> <span class="er">--variable</span> <span class="er">documentclass=book</span> <span class="er">-V</span> <span class="er">geometry:margin=2cm&quot;</span></code></pre></div>
+</body>
+</html>
